@@ -9,7 +9,7 @@ from rouge_score import rouge_scorer
 from bert_score import score
 
 # ✅ Load HF token safely from environment variable
-HF_TOKEN = os.getenv("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")  # Set this in your environment
+HF_TOKEN = os.getenv("HF_TOKEN")  # Set this in your environment
 
 
 @st.cache_resource

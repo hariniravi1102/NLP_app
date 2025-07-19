@@ -1,0 +1,12 @@
+bert_score==0.3.13
+diffusers==0.34.0
+langchain==0.3.26
+nltk==3.9.1
+Pillow==11.3.0
+rouge_score==0.1.2
+scikit_learn==1.7.0
+streamlit==1.46.1
+torch==2.6.0+cu118
+transformers==4.53.0
+trl==0.19.1
+wikipedia==1.4.0

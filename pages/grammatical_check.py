@@ -5,21 +5,18 @@ nltk.download('punkt')
 from nltk.tokenize import sent_tokenize
 #import subprocess
 from transformers import T5ForConditionalGeneration, T5Tokenizer
-print(torch.__version__)
-print(torch.cuda.is_available())       # Should be True
-print(torch.cuda.get_device_name(0))   # Should print your GPU name
 # Load the model and tokenizer
 model_name = "deep-learning-analytics/GrammarCorrector"
 tokenizer = T5Tokenizer.from_pretrained(model_name)
 model = T5ForConditionalGeneration.from_pretrained(model_name)
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-model.to(device)
+#device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+#model.to(device)
 # load function for grammar
 def correct_grammar(text):
     # Preprocess input for T5 model
     input_text = text
     input_ids = tokenizer.encode(input_text, return_tensors="pt", max_length=512, truncation=True)
-    input_ids = input_ids.to(device)
+    #input_ids = input_ids.to(device)
     # Generate correction
     outputs = model.generate(input_ids, max_length=1000, num_beams=4, early_stopping=True)
     corrected_text = tokenizer.decode(outputs[0], skip_special_tokens=True)

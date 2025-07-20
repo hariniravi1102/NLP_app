@@ -1,18 +1,20 @@
+import os
 import streamlit as st
 from transformers import BlipProcessor, BlipForConditionalGeneration
 from PIL import Image
-import torch
+import os
+from huggingface_hub import login
 
+# Load the token from the environment variable
+login(st.secrets["HUGGINGFACE_TOKEN"])
 # Load model and processor
 @st.cache_resource
 def load_model():
     processor = BlipProcessor.from_pretrained("Salesforce/blip-image-captioning-base")
     model = BlipForConditionalGeneration.from_pretrained("Salesforce/blip-image-captioning-base")
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    model.to(device)
-    return processor, model, device
+    return processor, model
 
-processor, model, device = load_model()
+processor, model = load_model()
 
 # Streamlit UI
 st.title("Image caption")
@@ -25,7 +27,7 @@ if uploaded_file:
 
     # Prepare inputs
     inputs = processor(image, return_tensors="pt")
-    inputs = {k: v.to(device) for k, v in inputs.items()}
+    inputs = {k: v for k, v in inputs.items()}
 
     # Generate one caption
     output = model.generate(**inputs)

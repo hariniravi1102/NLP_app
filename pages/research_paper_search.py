@@ -51,9 +51,9 @@ def plot_similarity_graph(papers, sim_matrix):
 
 # --- UI ---
 st.set_page_config(page_title="Research Paper Explorer", layout="wide")
-st.title("📚 Research Paper Explorer")
+st.title("Research Paper Explorer")
 
-query = st.text_input("Enter your research topic:", "graph neural networks for drug discovery")
+query = st.text_input("Enter your research topic:", "Neural networks for drug discovery")
 max_results = st.slider("Number of papers to fetch:", 5, 50, 15)
 show_graph = st.checkbox("Show similarity graph", value=True)
 
@@ -85,3 +85,7 @@ if st.button("Search"):
             sim_matrix = cosine_similarity(embeddings)
             buf = plot_similarity_graph(papers, sim_matrix)
             st.image(buf, use_column_width=True)
+
+if st.button("⬅ back to main page"):
+    # Your redirect or logic here
+    st.switch_page("main.py")

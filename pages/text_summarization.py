@@ -9,8 +9,8 @@ def load_model():
 summarizer = load_model()
 
 # Streamlit UI
-st.title("📝 Text Summarization App")
-st.write("Summarize long text using a Transformer model (Abstractive Summarization).")
+st.title("Text Summarization App")
+st.write("Summarize long text")
 
 # User input
 input_text = st.text_area("Enter text to summarize", height=250)

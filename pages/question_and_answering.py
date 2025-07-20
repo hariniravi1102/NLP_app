@@ -11,8 +11,7 @@ from transformers import AutoTokenizer, AutoModelForCausalLM, pipeline
 @st.cache_resource
 def get_embedder():
     return HuggingFaceEmbeddings(
-        model_name="sentence-transformers/all-MiniLM-L6-v2",
-        model_kwargs={"device": "cuda"}
+        model_name="sentence-transformers/all-MiniLM-L6-v2"
     )
 
 # Load LLM (use Mistral or TinyLlama)
@@ -35,8 +34,8 @@ def get_wiki_chunks(topic):
         return []
 
 # Streamlit App
-st.title("🌍 General Knowledge RAG Chatbot")
-topic = st.text_input("Enter a topic (e.g. 'Black Holes', 'Einstein', 'Python Programming'):")
+st.title("🌍 General Knowledge Chatbot")
+topic = st.text_input("Enter a topic :")
 
 if topic:
     with st.spinner("Fetching and indexing..."):
@@ -55,3 +54,7 @@ if topic:
             if question:
                 answer = rag_chain.run(question)
                 st.write("**🤖 Answer:**", answer)
+
+if st.button("⬅ back to main page"):
+    # Your redirect or logic here
+    st.switch_page("main.py")

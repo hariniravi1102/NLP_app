@@ -1,15 +1,14 @@
 from diffusers import StableDiffusionPipeline
 import torch
-print(torch.__version__)               # Should show 2.6.0
-print(torch.cuda.is_available())       # Should be True
-print(torch.cuda.get_device_name(0))   # Should print your GPU name
-
 import streamlit as st
+from diffusers import StableDiffusionPipeline
+import torch
+
 pipe = StableDiffusionPipeline.from_pretrained(
     "runwayml/stable-diffusion-v1-5",
-    torch_dtype=torch.float16,
-    variant="fp16",
-).to("cuda")
+    torch_dtype=torch.float32,  # CPU requires float32
+)
+
 
 def generate_image(prompt):
     with torch.autocast("cuda"):

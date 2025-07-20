@@ -4,7 +4,7 @@ import torch
 # Load Mistral model and tokenizer (public, no gated access required)
 @st.cache_resource
 def load_model():
-    model_name = "mistralai/Mistral-7B-Instruct-v0.1"
+    model_name = "mistralai"
     tokenizer = AutoTokenizer.from_pretrained(model_name)
     model = AutoModelForCausalLM.from_pretrained(
         model_name,

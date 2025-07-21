@@ -1,8 +1,14 @@
 import streamlit as st
 import torch
 import nltk
-nltk.download('punkt')
 from nltk.tokenize import sent_tokenize
+# Ensure punkt is available
+try:
+    nltk.data.find('tokenizers/punkt')
+except LookupError:
+    with st.spinner("Downloading NLTK punkt tokenizer..."):
+        nltk.download('punkt')
+
 #import subprocess
 from transformers import T5ForConditionalGeneration, T5Tokenizer
 # Load the model and tokenizer

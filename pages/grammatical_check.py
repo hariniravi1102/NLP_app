@@ -2,7 +2,6 @@ import streamlit as st
 import torch
 import nltk
 from nltk.tokenize import sent_tokenize
-# Ensure punkt is available
 
 
 #import subprocess

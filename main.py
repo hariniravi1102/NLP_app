@@ -18,8 +18,8 @@ hide_sidebar = """
 """
 st.markdown(hide_sidebar, unsafe_allow_html=True)
 
-if st.button("Go to Article_writer"):
-    st.switch_page("pages/document_writer.py")
+#if st.button("Go to Article_writer"):
+#   st.switch_page("pages/document_writer.py")
 
 if st.button("Go to Grammatical Check"):
     st.switch_page("pages/grammatical_check.py")

@@ -3,11 +3,7 @@ import torch
 import nltk
 from nltk.tokenize import sent_tokenize
 # Ensure punkt is available
-try:
-    nltk.data.find('tokenizers/punkt')
-except LookupError:
-    with st.spinner("Downloading NLTK punkt tokenizer..."):
-        nltk.download('punkt')
+
 
 #import subprocess
 from transformers import T5ForConditionalGeneration, T5Tokenizer

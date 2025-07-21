@@ -2,10 +2,13 @@ import streamlit as st
 import torch
 import nltk
 from nltk.tokenize import sent_tokenize
-
-
 #import subprocess
 from transformers import T5ForConditionalGeneration, T5Tokenizer
+try:
+    nltk.data.find("tokenizers/punkt")
+except LookupError:
+    with st.spinner("Downloading punkt..."):
+        nltk.download("punkt")
 # Load the model and tokenizer
 model_name = "deep-learning-analytics/GrammarCorrector"
 tokenizer = T5Tokenizer.from_pretrained(model_name)

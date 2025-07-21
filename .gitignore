@@ -1,0 +1,2 @@
+# Exclude local secrets
+.streamlit/secrets.toml

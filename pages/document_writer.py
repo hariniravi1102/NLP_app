@@ -2,7 +2,7 @@ import streamlit as st
 from transformers import AutoTokenizer, AutoModelForCausalLM, pipeline
 from huggingface_hub import login
 import torch
-hf_token = st.secrets["HF_TOKEN"]
+hf_token = st.secrets["HUGGINGFACE_TOKEN"]
 login(token=hf_token)
 # Load Mistral model and tokenizer (public, no gated access required)
 @st.cache_resource

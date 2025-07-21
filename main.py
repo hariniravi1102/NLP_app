@@ -1,5 +1,4 @@
 import streamlit as st
-
 import streamlit as st
 
 st.set_page_config(
@@ -30,8 +29,8 @@ if st.button("Go to Text summarization"):
 if st.button("Go to Research paper search"):
     st.switch_page("pages/research_paper_search.py")
 
-if st.button("Go to chat"):
-    st.switch_page("pages/question_and_answering.py")
+#if st.button("Go to chat"):
+#   st.switch_page("pages/question_and_answering.py")
 
 if st.button("Go to Image Generation"):
     st.switch_page("pages/image_generation.py")
